@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary-color: green;
+  --default-border-radius: 0.5rem;
+  --default-transition: all 200ms;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+form {
+  width: max(500px);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  div {
+    position: relative;
+
+    label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1rem;
+      pointer-events: none;
+      color: #303030;
+      transition: var(--default-transition);
+    }
+
+    input {
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      border-radius: var(--default-border-radius);
+      box-shadow: inset 0px 0px 0px 1.5px #e6e6e6;
+      transition: var(--default-transition);
+
+      &:hover {
+        box-shadow: inset 0px 0px 0px 1.5px #303030;
+      }
+
+      &:focus {
+        box-shadow: inset 0px 0px 0px 2px var(--primary-color);
+
+        & + label {
+          color: var(--primary-color);
+        }
+      }
+
+      &:is(&:focus, &:valid) {
+        & + label {
+          top: 0;
+          background-color: white;
+          padding-inline: 0.5rem;
+          font-size: 13px;
+          left: 0.75rem;
+        }
+      }
+    }
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--default-border-radius);
+    border: none;
+    cursor: pointer;
+    transition: var(--default-transition);
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
